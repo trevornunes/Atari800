@@ -87,7 +87,7 @@ int PLATFORM_Initialise(int *argc, char *argv[])
 		if (SDL_Init(i) != 0) {
 			Log_print("SDL_Init FAILED: %s", SDL_GetError());
 			Log_flushlog();
-			exit(-1);
+			//exit(-1);
 		}
 		atexit(SDL_Quit);
 	}

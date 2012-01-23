@@ -60,9 +60,9 @@
 							</tool>
 							<tool id="com.qnx.qcc.tool.linker.202854622" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
 								<option id="com.qnx.qcc.option.linker.debug.599993788" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraries.1756998980" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs"/>
+								<option id="com.qnx.qcc.option.linker.libraries.1756998980" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries"/>
 								<option id="com.qnx.qcc.option.linker.security.57905148" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.libraryPaths.1600605479" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths"/>
+								<option id="com.qnx.qcc.option.linker.libraryPaths.1600605479" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths"/>
 								<inputType id="com.qnx.qcc.inputType.linker.820951603" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -95,7 +95,7 @@
 							<builder buildPath="${workspace_loc:/Atari800/Device-Release}" id="com.qnx.nto.141077209" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
 							<tool id="com.qnx.qcc.tool.compiler.1034271925" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
 								<option id="com.qnx.qcc.option.compiler.optlevel.695180711" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.2" valueType="enumerated"/>
-								<option id="com.qnx.qcc.option.compiler.security.1542520325" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.security.1542520325" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="false" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.986124749" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 									<listOptionValue builtIn="false" value="__QNXNTO__"/>
@@ -109,9 +109,11 @@
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/usr/include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/include}&quot;"/>
 								</option>
+								<option id="com.qnx.qcc.option.compile.debug.1051838953" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="false" valueType="boolean"/>
 								<inputType id="com.qnx.qcc.inputType.compiler.143607734" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
 							<tool id="com.qnx.qcc.tool.assembler.1407266957" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
+								<option id="com.qnx.qcc.option.assembler.debug.964731501" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="false" valueType="boolean"/>
 								<inputType id="com.qnx.qcc.inputType.assembler.2095873597" superClass="com.qnx.qcc.inputType.assembler"/>
 							</tool>
 							<tool id="com.qnx.qcc.tool.linker.1624360366" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
@@ -133,6 +135,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL12/Device-Release}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib"/>
 								</option>
+								<option id="com.qnx.qcc.option.linker.debug.1521116096" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="false" valueType="boolean"/>
 								<inputType id="com.qnx.qcc.inputType.linker.1664626286" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>

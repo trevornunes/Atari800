@@ -145,6 +145,11 @@
 #include "win32\main.h"
 #endif
 
+#ifdef __QNXNTO__
+#include "dirent.h"
+#endif
+
+
 int Atari800_machine_type = Atari800_MACHINE_XLXE;
 int Atari800_tv_mode = Atari800_TV_PAL;
 int Atari800_disable_basic = TRUE;
@@ -372,7 +377,8 @@ int Atari800_Initialise(int *argc, char *argv[])
 #endif /* _WX_ */
 	PreInitialise();
 #else /* __PLUS */
-	const char *rtconfig_filename = NULL;
+	const char *rtconfig_filename = "/accounts/1000/shared/misc/atari800/atari800.cfg";
+
 	int got_config;
 	int help_only = FALSE;
 
@@ -419,6 +425,12 @@ int Atari800_Initialise(int *argc, char *argv[])
 #if defined(unix) || defined(__unix__) || defined(__linux__)
 	CFG_FindROMImages("/usr/share/atari800", TRUE);
 #endif
+
+#ifdef __QNXNTO__
+    mkdir("/accounts/1000/shared/misc/atari800",0777);
+	CFG_FindROMImages("/accounts/1000/shared/misc/atari800", TRUE);
+#endif
+
 	if (*argc > 0 && argv[0] != NULL) {
 		char atari800_exe_dir[FILENAME_MAX];
 		char atari800_exe_rom_dir[FILENAME_MAX];

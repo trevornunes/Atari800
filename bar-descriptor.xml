@@ -29,13 +29,14 @@
 
     <!-- Description, displayed in the BlackBerry Tablet OS application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>The Atari800 application</description>
+    <description>The Atari800 emulator ( 400,800XL, 65XE,5200,130XE etc)</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->
 
     <!--  Name of author which is used for signing. Must match the developer name of your development certificate. -->
-    <author>Example Inc.</author>
+    <author>t</author>
+    <authorId>gYAAgOKRaqVbNM5ToziNoZFV720</authorId>
     
     <!--  Unique author ID assigned by signing authority. Required if using debug tokens. -->
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
@@ -53,6 +54,10 @@
     <asset path="media/ATARIBAS.ROM">ATARIBAS.ROM</asset>
     <asset path="media/ATARIOSB.ROM">ATARIOSB.ROM</asset>
     <asset path="media/ATARIXL.ROM">ATARIXL.ROM</asset>
+    <asset path="media/atari800.png">atari800.png</asset>
+    <asset path="sdl-controls.xml">sdl-controls.xml</asset>
+    <asset path="media/dpad.png">dpad.png</asset>
+    <asset path="media/fire.png">fire.png</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1316221809" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/Atari800" entry="true" type="Qnx/Elf">Atari800</asset>
@@ -84,7 +89,7 @@
     
     <!--  The icon for the application, which should be 86x86. -->
     <icon>
-        <image>icon.png</image>
+        <image>atari800.png</image>
     </icon>
     
     <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->
