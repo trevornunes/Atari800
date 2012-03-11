@@ -63,10 +63,10 @@ int PLATFORM_kbd_joy_0_enabled = TRUE;	/* enabled by default, doesn't hurt */
 int PLATFORM_kbd_joy_1_enabled = FALSE;	/* disabled, would steal normal keys */
 
 static int KBD_TRIG_0 = SDLK_RCTRL;
-static int KBD_STICK_0_LEFT = SDLK_KP4;
-static int KBD_STICK_0_RIGHT = SDLK_KP6;
-static int KBD_STICK_0_DOWN = SDLK_KP5;
-static int KBD_STICK_0_UP = SDLK_KP8;
+static int KBD_STICK_0_LEFT = SDLK_LEFT; // SDLK_KP4;
+static int KBD_STICK_0_RIGHT = SDLK_RIGHT; // SDLK_KP6;
+static int KBD_STICK_0_DOWN = SDLK_DOWN; // SDLK_KP5;
+static int KBD_STICK_0_UP = SDLK_UP; //  SDLK_KP8;
 static int KBD_TRIG_1 = SDLK_LCTRL;
 static int KBD_STICK_1_LEFT = SDLK_a;
 static int KBD_STICK_1_RIGHT = SDLK_d;
@@ -357,6 +357,18 @@ int PLATFORM_Keyboard(void)
 		exit(-1);
 	}
 
+	// toggle L-ALT on/off to fake Left ALT and trigger
+	// the various functions.
+#ifdef __QNXNTO__
+	if(key_pressed)
+		if(lastkey == SDLK_0)
+		{
+			kbhits[SDLK_LALT] = ~kbhits[SDLK_LALT];
+		    fprintf(stderr,"L-ALT toggle is %s\n", kbhits[SDLK_LALT] ? "on" : "off");
+		    UI_driver->fMessage(kbhits[SDLK_LALT] ? "hotkey mode!" : "keyboard mode", 0);
+		}
+#endif
+
 	UI_alt_function = -1;
 	if (kbhits[SDLK_LALT]) {
 		if (key_pressed) {
@@ -526,6 +538,8 @@ int PLATFORM_Keyboard(void)
 						}
 						FILTER_NTSC_Update(FILTER_NTSC_emu);
 						break;
+
+						/*
 					case SDLK_0:
 						key_pressed = 0;
 						if (kbhits[SDLK_LSHIFT]) {
@@ -537,6 +551,8 @@ int PLATFORM_Keyboard(void)
 						}
 						FILTER_NTSC_Update(FILTER_NTSC_emu);
 						break;
+
+						*/
 					case SDLK_MINUS:
 						key_pressed = 0;
 						if (kbhits[SDLK_LSHIFT]) {
@@ -1221,6 +1237,7 @@ int SDL_INPUT_Initialise(int *argc, char *argv[])
 #endif /* LPTJOY */
 	Init_SDL_Joysticks(fd_joystick0 == -1, fd_joystick1 == -1);
 	if (INPUT_cx85) { /* disable keyboard joystick if using CX85 numpad */
+		fprintf(stderr,"disable keyboard joystick\n");
 		PLATFORM_kbd_joy_0_enabled = 0;
 	}
 	if(grab_mouse)

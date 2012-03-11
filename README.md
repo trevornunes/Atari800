@@ -8,5 +8,5 @@ Atari 800 ROM is freely available as part of the package, i've included them her
 
 http://sourceforge.net/projects/atari800/files   ROM directory
 
-
-/froggyface tbotz.blogspot.com
+Visit my blogpage on Atari800 for steps on how to use the emulator ...
+tbotz.blogspot.com

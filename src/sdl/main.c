@@ -87,7 +87,8 @@ int PLATFORM_Initialise(int *argc, char *argv[])
 		if (SDL_Init(i) != 0) {
 			Log_print("SDL_Init FAILED: %s", SDL_GetError());
 			Log_flushlog();
-			//exit(-1);
+			sleep(1);
+			exit(-1);
 		}
 		atexit(SDL_Quit);
 	}
@@ -175,7 +176,11 @@ int main(int argc, char **argv)
 
 	/* initialise Atari800 core */
 	if (!Atari800_Initialise(&argc, argv))
+	{
+	    fprintf(stderr,"ERROR in Atari800_Initialize\n");
 		return 3;
+	}
+	fprintf(stderr,"initialized ...\n");
 
 	/* main loop */
 	for (;;) {

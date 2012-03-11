@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <emulation version="1">
 
-<dpad x="10" y="500" width="96" height="96">
-<label x="0" y="0" width="96" height="96" image="dpad.png"/>
+
+<dpad x="10" y="400" width="160" height="160">
+<label x="0" y="0" width="160" height="160" image="dpad.png"/>
 </dpad>
 
-<key x="900" y="500" width="88" height="88" sym="32" scancode="32">
-<label x="0" y="0" width="88" height="88" image="fire.png"/>
+<key x="900" y="400" width="64" height="64" sym="305" scancode="305">
+<label x="0" y="0" width="64s" height="64" image="fire.png"/>
 </key>
 
-<key x="0" y="0" width="25" height="25" sym="48" scancode="48"/>
+<key x="0" y="0" width="64" height="64" sym="48" scancode="48">
+<label x="0" y="0" width="64" height="64" image="lalt.png"/>
+</key>
 
+
+<key x="230"  y="0" width="64" height="32" sym="114" scancode="114">
+<label x="0" y="0" width="64" height="32" image="sqrbutton.png"/>
+</key>
+
+<key x="300" y="0" width="64" height="32" sym="121" scancode="121">
+<label x="0" y="0" width="64" height="32" image="sqrbutton.png"/>
+</key>
+
+<key x="370" y="0" width="64" height="32" sym="99" scancode="99">
+<label x="0" y="0" width="64" height="32" image="sqrbutton.png"/>
+</key>
+
+
+<key x="900" y="0" width="64" height="64" sym="283" scancode="283">
+<label x="0" y="0" width="64" height="64" image="silver.png"/>
+</key>
+
+<key x="900" y="68" width="64" height="64" sym="284" scancode="284">
+<label x="0" y="0" width="64" height="64" image="silver.png"/>
+</key>
+
+<key x="900" y="136" width="64" height="64" sym="285" scancode="285">
+<label x="0" y="0" width="64" height="64" image="silver.png"/>
+</key>
+
+
+<key x="900" y="500" width="64" height="64" sym="13" scancode="13">
+<label x="0" y="0" width="64" height="64" image="return.png"/>
+</key>
 </emulation>

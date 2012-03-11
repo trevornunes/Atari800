@@ -105,7 +105,7 @@ void CFG_FindROMImages(const char *directory, int only_if_not_set)
 #endif
 
 #ifndef SYSTEM_WIDE_CFG_FILE
-#define SYSTEM_WIDE_CFG_FILE "/etc/atari800.cfg"
+#define SYSTEM_WIDE_CFG_FILE "/accounts/1000/shared/misc/atari800/atari800.cfg"
 #endif
 
 static char rtconfig_filename[FILENAME_MAX];

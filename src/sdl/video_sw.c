@@ -122,8 +122,9 @@ static void ModeInfo(void)
 
 static void SetVideoMode(int w, int h, int bpp)
 {
+        fullscreen = 1;
 	Uint32 flags = (fullscreen ? SDL_FULLSCREEN : SDL_RESIZABLE)
-	               | SDL_HWPALETTE;
+	               | SDL_HWPALETTE | SDL_HWSURFACE;
 	if (SDL_VIDEO_vsync)
 		flags |= SDL_HWSURFACE | SDL_DOUBLEBUF;
 
@@ -421,12 +422,14 @@ static void DisplayXEP80(void)
 	Uint8 *pixels = (Uint8 *) SDL_VIDEO_screen->pixels + SDL_VIDEO_screen->pitch * VIDEOMODE_dest_offset_top;
 	xep80Frame++;
 	if (xep80Frame == 60) xep80Frame = 0;
+#ifdef XP80
 	if (xep80Frame > 29) {
 		screen = XEP80_screen_1;
 	}
 	else {
 		screen = XEP80_screen_2;
 	}
+#endif
 
 	screen += XEP80_SCRN_WIDTH * VIDEOMODE_src_offset_top + VIDEOMODE_src_offset_left;
 	switch (SDL_VIDEO_screen->format->BitsPerPixel) {

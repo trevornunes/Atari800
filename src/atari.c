@@ -378,6 +378,7 @@ int Atari800_Initialise(int *argc, char *argv[])
 	PreInitialise();
 #else /* __PLUS */
 	const char *rtconfig_filename = "/accounts/1000/shared/misc/atari800/atari800.cfg";
+    chdir("/accounts/1000/shared/misc/atari800/");
 
 	int got_config;
 	int help_only = FALSE;
@@ -428,7 +429,9 @@ int Atari800_Initialise(int *argc, char *argv[])
 
 #ifdef __QNXNTO__
     mkdir("/accounts/1000/shared/misc/atari800",0777);
+//	system("cp atari*.rom /accounts/1000/shared/misc/atari800/");
 	CFG_FindROMImages("/accounts/1000/shared/misc/atari800", TRUE);
+
 #endif
 
 	if (*argc > 0 && argv[0] != NULL) {
