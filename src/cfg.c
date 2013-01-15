@@ -48,11 +48,19 @@
 #include "videomode.h"
 #endif
 
+#ifndef __QNXNTO__
 char CFG_osa_filename[FILENAME_MAX] = Util_FILENAME_NOT_SET;
 char CFG_osb_filename[FILENAME_MAX] = Util_FILENAME_NOT_SET;
 char CFG_xlxe_filename[FILENAME_MAX] = Util_FILENAME_NOT_SET;
 char CFG_5200_filename[FILENAME_MAX] = Util_FILENAME_NOT_SET;
 char CFG_basic_filename[FILENAME_MAX] = Util_FILENAME_NOT_SET;
+#else
+char CFG_osa_filename[FILENAME_MAX] = "/accounts/1000/shared/misc/atari800/atariosa.rom";
+char CFG_osb_filename[FILENAME_MAX] = "/accounts/1000/shared/misc/atari800/atariosb.rom";
+char CFG_xlxe_filename[FILENAME_MAX] = "/accounts/1000/shared/misc/atari800/atarixl.rom";
+char CFG_5200_filename[FILENAME_MAX] = "/accounts/1000/shared/misc/atari800/5200.rom";
+char CFG_basic_filename[FILENAME_MAX] = "/accounts/1000/shared/misc/atari800/ataribas.rom";
+#endif
 
 
 void CFG_FindROMImages(const char *directory, int only_if_not_set)

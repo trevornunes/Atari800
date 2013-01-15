@@ -2219,7 +2219,11 @@ int MONITOR_Run(void)
 			return FALSE;
 		}
 		else
+#ifdef __QNXNTO__
+			exit(0);
+#else
 			printf("Invalid command!\n");
+#endif
 	}
 }
 

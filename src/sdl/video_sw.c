@@ -128,6 +128,8 @@ static void SetVideoMode(int w, int h, int bpp)
 	if (SDL_VIDEO_vsync)
 		flags |= SDL_HWSURFACE | SDL_DOUBLEBUF;
 
+	fprintf(stderr,"SetVideoMode: %d x %d bpp=%d\n", w,h,bpp);
+
 	SDL_VIDEO_screen = SDL_SetVideoMode(w, h, bpp, flags);
 	if (SDL_VIDEO_screen == NULL) {
 		/* Some SDL_SetVideoMode errors can be averted by reinitialising the SDL video subsystem. */

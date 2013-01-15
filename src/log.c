@@ -30,6 +30,8 @@
 #include <android/log.h>
 #endif
 
+#define BUFFERED_LOG 1
+
 #include "log.h"
 
 #ifdef MACOSX
@@ -44,6 +46,8 @@
 char Log_buffer[Log_BUFFER_SIZE] = "";
 #endif
 
+
+#ifndef __QNXNTO__
 void Log_print(char *format, ...)
 {
 	va_list args;
@@ -77,6 +81,8 @@ void Log_print(char *format, ...)
 	PRINT(buffer);
 #endif
 }
+
+#endif
 
 void Log_flushlog(void)
 {

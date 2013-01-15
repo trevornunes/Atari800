@@ -1,47 +1,79 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <emulation version="1">
 
-
-<dpad x="10" y="400" width="160" height="160">
-<label x="0" y="0" width="160" height="160" image="dpad.png"/>
+<dpad x="10" y="380" width="180" height="180">
+<label x="0" y="0" width="180" height="180" image="dpad.png"/>
 </dpad>
 
-<key x="900" y="400" width="64" height="64" sym="305" scancode="305">
-<label x="0" y="0" width="64s" height="64" image="fire.png"/>
+<key x="930" y="420" width="64" height="64" sym="65" scancode="65">
+<label x="0" y="0" width="64" height="64" image="fire.png"/>
 </key>
 
+<!-- ALT TOGGLE -->
 <key x="0" y="0" width="64" height="64" sym="48" scancode="48">
 <label x="0" y="0" width="64" height="64" image="lalt.png"/>
 </key>
 
-
-<key x="230"  y="0" width="64" height="32" sym="114" scancode="114">
-<label x="0" y="0" width="64" height="32" image="sqrbutton.png"/>
+<!-- UI TOGGLE -->
+<key x="100" y="0" width="64" height="64" sym="282" scancode="282">
+<label x="0" y="0" width="64" height="64" image="silver_menu.png"/>
 </key>
-
-<key x="300" y="0" width="64" height="32" sym="121" scancode="121">
-<label x="0" y="0" width="64" height="32" image="sqrbutton.png"/>
-</key>
-
-<key x="370" y="0" width="64" height="32" sym="99" scancode="99">
-<label x="0" y="0" width="64" height="32" image="sqrbutton.png"/>
-</key>
-
-
-<key x="900" y="0" width="64" height="64" sym="283" scancode="283">
+<!--  ESCAPE KEY  -->
+<key x="0" y="100" width="64" height="64" sym="27" scancode="27">
 <label x="0" y="0" width="64" height="64" image="silver.png"/>
 </key>
 
-<key x="900" y="68" width="64" height="64" sym="284" scancode="284">
+<!--  TAB KEY  -->
+<key x="0" y="200" width="64" height="64" sym="9" scancode="9">
 <label x="0" y="0" width="64" height="64" image="silver.png"/>
 </key>
 
-<key x="900" y="136" width="64" height="64" sym="285" scancode="285">
-<label x="0" y="0" width="64" height="64" image="silver.png"/>
+ <!-- SYSTEM BUTTON -->
+<key x="200" y="0" width="64" height="64" sym="121" scancode="121">
+<label x="0" y="0" width="64" height="64" image="atari800.png"/>
 </key>
 
 
-<key x="900" y="500" width="64" height="64" sym="13" scancode="13">
+<!--  DISK BUTTON -->
+<key x="300" y="0" width="64" height="64" sym="100" scancode="100">
+<label x="0" y="0" width="64" height="64" image="atari_drive.png"/>
+</key>
+
+ <!--  CART BUTTON -->
+<key x="400" y="0" width="64" height="32" sym="99" scancode="99">
+<label x="0" y="0" width="64" height="64" image="atari_cart.png"/>
+</key>
+
+
+ <!--  RESET BUTTON -->
+<key x="500" y="0" width="64" height="64" sym="286" scancode="286">
+<label x="0" y="0" width="64" height="64" image="silver_reset.png"/>
+</key>
+
+ <!--  RUN BUTTON -->
+<key x="940" y="0" width="64" height="64" sym="144" scancode="114">
+<label x="0" y="0" width="64" height="64" image="silver_run.png"/>
+</key>
+
+ <!--  OPTION BUTTON -->
+
+<key x="940" y="70" width="64" height="64" sym="283" scancode="283">
+<label x="0" y="0" width="64" height="64" image="silver_option.png"/>
+</key>
+
+ <!--  SELECT BUTTON -->
+<key x="940" y="140" width="64" height="64" sym="284" scancode="284">
+<label x="0" y="0" width="64" height="64" image="silver_select.png"/>
+</key>
+
+ <!--  START BUTTON -->
+<key x="940" y="210" width="64" height="64" sym="285" scancode="285">
+<label x="0" y="0" width="64" height="64" image="silver_start.png"/>
+</key>
+
+
+ <!--  RETURN BUTTON -->
+<key x="940" y="330" width="64" height="64" sym="13" scancode="13">
 <label x="0" y="0" width="64" height="64" image="return.png"/>
 </key>
 </emulation>

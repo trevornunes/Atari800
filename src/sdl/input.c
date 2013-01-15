@@ -366,6 +366,7 @@ int PLATFORM_Keyboard(void)
 			kbhits[SDLK_LALT] = ~kbhits[SDLK_LALT];
 		    fprintf(stderr,"L-ALT toggle is %s\n", kbhits[SDLK_LALT] ? "on" : "off");
 		    UI_driver->fMessage(kbhits[SDLK_LALT] ? "hotkey mode!" : "keyboard mode", 0);
+		    sleep(1);
 		}
 #endif
 
@@ -539,7 +540,7 @@ int PLATFORM_Keyboard(void)
 						FILTER_NTSC_Update(FILTER_NTSC_emu);
 						break;
 
-						/*
+#ifndef __QNXNTO__  /* hijack 0 for rom cycling */
 					case SDLK_0:
 						key_pressed = 0;
 						if (kbhits[SDLK_LSHIFT]) {
@@ -551,8 +552,7 @@ int PLATFORM_Keyboard(void)
 						}
 						FILTER_NTSC_Update(FILTER_NTSC_emu);
 						break;
-
-						*/
+#endif
 					case SDLK_MINUS:
 						key_pressed = 0;
 						if (kbhits[SDLK_LSHIFT]) {

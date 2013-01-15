@@ -146,7 +146,9 @@
 #endif
 
 #ifdef __QNXNTO__
+#include "unistd.h"
 #include "dirent.h"
+#include "errno.h"
 #endif
 
 
@@ -251,13 +253,14 @@ int Atari800_LoadImage(const char *filename, UBYTE *buffer, int nbytes)
 
 	f = fopen(filename, "rb");
 	if (f == NULL) {
-		Log_print("Error loading ROM image: %s", filename);
+		fprintf(stderr, "Error loading ROM image: %s\n", filename);
+		fprintf(stderr,"reason: %s\n", strerror(errno) );
 		return FALSE;
 	}
 	len = fread(buffer, 1, nbytes, f);
 	fclose(f);
 	if (len != nbytes) {
-		Log_print("Error reading %s", filename);
+		fprintf(stderr,"Error reading %s\n", filename);
 		return FALSE;
 	}
 	return TRUE;
@@ -325,6 +328,8 @@ static int load_roms(void)
 
 int Atari800_InitialiseMachine(void)
 {
+	fprintf(stderr,"Atari800_InitialiseMachine \n");
+
 	ESC_ClearAll();
 	if (!load_roms())
 		return FALSE;
@@ -378,7 +383,7 @@ int Atari800_Initialise(int *argc, char *argv[])
 	PreInitialise();
 #else /* __PLUS */
 	const char *rtconfig_filename = "/accounts/1000/shared/misc/atari800/atari800.cfg";
-    chdir("/accounts/1000/shared/misc/atari800/");
+
 
 	int got_config;
 	int help_only = FALSE;
@@ -423,15 +428,27 @@ int Atari800_Initialise(int *argc, char *argv[])
 	/* try to find ROM images if the configuration file is not found
 	   or it does not specify some ROM paths (blank paths count as specified) */
 	CFG_FindROMImages("", TRUE); /* current directory */
+
 #if defined(unix) || defined(__unix__) || defined(__linux__)
 	CFG_FindROMImages("/usr/share/atari800", TRUE);
 #endif
 
 #ifdef __QNXNTO__
     mkdir("/accounts/1000/shared/misc/atari800",0777);
-//	system("cp atari*.rom /accounts/1000/shared/misc/atari800/");
-	CFG_FindROMImages("/accounts/1000/shared/misc/atari800", TRUE);
+    mkdir("/accounts/1000/shared/misc/atari800/games",0777);
+    mkdir("/accounts/1000/shared/misc/atari800/games/5200",0777);
+    mkdir("/accounts/1000/shared/misc/atari800/games/xlxe",0777);
 
+    char cpath[256];
+    char romPath[256];
+
+    getcwd(cpath,255);
+    sprintf(romPath,"%s/app/public", cpath);
+    chdir("/accounts/1000/shared/misc/atari800/");
+
+    fprintf(stderr,"%s\n", romPath);
+
+	CFG_FindROMImages(romPath, FALSE);
 #endif
 
 	if (*argc > 0 && argv[0] != NULL) {
@@ -449,6 +466,8 @@ int Atari800_Initialise(int *argc, char *argv[])
 		CFG_FindROMImages(atari800_exe_rom_dir, TRUE);
 #endif
 	}
+
+
 	/* finally if nothing is found, set some defaults to make
 	   the configuration file easier to edit */
 	if (Util_filenamenotset(CFG_osa_filename))
@@ -736,6 +755,8 @@ int Atari800_Initialise(int *argc, char *argv[])
 	)
 		return FALSE;
 
+	fprintf(stderr,"chips initialized.\n");
+
 #ifndef __PLUS
 
 	if (help_only) {
@@ -764,6 +785,8 @@ int Atari800_Initialise(int *argc, char *argv[])
 	}
 
 #endif /* __PLUS */
+
+	fprintf(stderr,"HERE");
 
 	/* Auto-start files left on the command line */
 	j = 1; /* diskno */

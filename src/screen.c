@@ -121,6 +121,8 @@ int Screen_Initialise(int *argc, char *argv[])
 	int j;
 	int help_only = FALSE;
 
+	fprintf(stderr,"Screen_Initialise\n");
+
 	for (i = j = 1; i < *argc; i++) {
 		int i_a = (i + 1 < *argc);		/* is argument available? */
 		int a_m = FALSE;			/* error, argument missing! */

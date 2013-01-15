@@ -321,6 +321,8 @@ void Util_catpath(char *result, const char *path1, const char *path2)
 		 || path2[0] == '/' || path1[strlen(path1) - 1] == '/'
 #endif
 			? "%s%s" : "%s" Util_DIR_SEP_STR "%s", path1, path2);
+
+	fprintf(stderr,"Util_catpath: %s\n", result);
 }
 
 int Util_fileexists(const char *filename)

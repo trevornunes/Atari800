@@ -180,7 +180,7 @@ int main(int argc, char **argv)
 	    fprintf(stderr,"ERROR in Atari800_Initialize\n");
 		return 3;
 	}
-	fprintf(stderr,"initialized ...\n");
+	fprintf(stderr,"main loop ...\n");
 
 	/* main loop */
 	for (;;) {

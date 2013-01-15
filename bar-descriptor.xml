@@ -42,6 +42,8 @@
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
    
     <initialWindow>
+        <aspectRatio>landscape</aspectRatio>
+        <autoOrients>false</autoOrients>atio>
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>
     </initialWindow>
@@ -54,15 +56,22 @@
     <asset path="sdl-controls.xml">sdl-controls.xml</asset>
     <asset path="media/dpad.png">dpad.png</asset>
     <asset path="media/fire.png">fire.png</asset>
-    <asset path="media/ataribas.rom">ataribas.rom</asset>
-    <asset path="media/atariosb.rom">atariosb.rom</asset>
-    <asset path="media/atarixl.rom">atarixl.rom</asset>
     <asset path="${workspace_loc:/SDL12/Device-Release/libSDL12.so}" type="Qnx/Elf">lib/libSDL12.so</asset>
     <asset path="media/altkey.png">altkey.png</asset>
     <asset path="media/sqrbutton.png">sqrbutton.png</asset>
     <asset path="media/silver.png">silver.png</asset>
     <asset path="media/lalt.png">lalt.png</asset>
     <asset path="media/return.png">return.png</asset>
+    <asset path="media/atari_cart.png">atari_cart.png</asset>
+    <asset path="media/atari_drive.png">atari_drive.png</asset>
+    <asset path="media/atari-5200.jpg">atari-5200.jpg</asset>
+    <asset path="media/atarijoy.png">atarijoy.png</asset>
+    <asset path="media/silver_option.png">silver_option.png</asset>
+    <asset path="media/silver_run.png">silver_run.png</asset>
+    <asset path="media/silver_select.png">silver_select.png</asset>
+    <asset path="media/silver_start.png">silver_start.png</asset>
+    <asset path="media/silver_reset.png">silver_reset.png</asset>
+    <asset path="media/silver_menu.png">silver_menu.png</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1316221809" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/Atari800" entry="true" type="Qnx/Elf">Atari800</asset>
@@ -96,28 +105,17 @@
     <icon>
         <image>atari800.png</image>
     </icon>
-    
-    <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->
-    <!-- <splashscreen></splashscreen> -->
+
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <action system="true">run_native</action>
     <action>access_internet</action>
     <action>access_shared</action>
     
-    <!--  The permissions requested by your application. -->
-    <!--  <action>access_shared</action> -->
-    <!--  <action>record_audio</action> -->
-    <!--  <action>read_geolocation</action> -->
-    <!--  <action>use_camera</action> -->
-    <!--  <action>access_internet</action> -->
-    <!--  <action>play_audio</action> -->
-    <!--  <action>post_notification</action> -->
-    <!--  <action>set_audio_volume</action> -->
-    <!--  <action>read_device_identifying_information</action> -->
+
 
     <!-- Ensure that shared libraries in the package are found at run-time. -->
     <env var="LD_LIBRARY_PATH" value="app/native/lib"/>
     <env var="TCO_CUSTOM_PATH" value="/accounts/1000/shared/misc/atari800/tco.xml"/>
-    
+    <env var="SDL_VIDEODRIVER" value="pb-8bit"/>
 </qnx>
