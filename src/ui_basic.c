@@ -54,6 +54,10 @@
 #include "ui.h"
 #include "util.h"
 
+#ifndef DO_DIR
+#define DO_DIR
+#endif
+
 #ifdef DIRECTX
 	#include "win32\main.h"
 	#include "ui_basic.h"

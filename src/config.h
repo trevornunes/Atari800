@@ -44,5 +44,5 @@
 #define HAVE_CLOCK 1
 #define TIME_WITH_SYS_TIME 1
 #define HAVE_USLEEP 1
-
+#define HAVE_OPENDIR 1
 #endif /* CONFIG_H_ */
