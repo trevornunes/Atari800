@@ -75,9 +75,9 @@ int PLATFORM_Initialise(int *argc, char *argv[])
 	*argc = j;
 
 	if (!help_only) {
-		i = SDL_INIT_JOYSTICK
+		//i = SDL_INIT_JOYSTICK
 #ifdef SOUND
-		    | SDL_INIT_AUDIO
+		    i = SDL_INIT_AUDIO
 #endif
 #if HAVE_WINDOWS_H
 /* Timers are used to avoid one Windows 7 glitch, see src/sdl/input.c */
